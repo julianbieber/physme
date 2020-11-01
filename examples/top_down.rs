@@ -69,7 +69,7 @@ fn character_system(
     input: Res<Input<KeyCode>>,
     mut query: Query<With<CharacterController, Mut<RigidBody>>>,
 ) {
-    for mut body in &mut query.iter() {
+    for mut body in query.iter_mut() {
         if input.pressed(KeyCode::Q) {
             body.rotation += 0.1;
         }
