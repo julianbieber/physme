@@ -847,7 +847,7 @@ pub struct Manifold {
 }
 
 pub fn broad_phase_system(
-    mut commands: Commands,
+    commands: &mut Commands,
     mut query: Query<(Entity, &RigidBody, &Children)>,
     query2: Query<&Shape>,
 ) {
@@ -1214,7 +1214,7 @@ fn physics_step_system(
 }
 
 pub fn joint_system<B: JointBehaviour>(
-    mut commands: Commands,
+    commands: &mut Commands,
     mut query: Query<(Entity, Mut<Joint<B>>)>,
     mut bodies: Query<Mut<RigidBody>>,
 ) {

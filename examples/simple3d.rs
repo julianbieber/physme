@@ -20,7 +20,7 @@ impl CharacterController {
 fn main() {
     let mut builder = App::build();
     builder
-        .add_default_plugins()
+        .add_plugins(DefaultPlugins)
         .add_plugin(Physics3dPlugin)
         .add_resource(GlobalFriction(0.90))
         .add_resource(GlobalStep(0.5))
@@ -31,7 +31,7 @@ fn main() {
 }
 
 fn setup(
-    mut commands: Commands,
+    commands: &mut Commands,
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<StandardMaterial>>,
 ) {

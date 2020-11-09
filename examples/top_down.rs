@@ -7,7 +7,7 @@ pub struct CharacterController;
 fn main() {
     let mut builder = App::build();
     builder
-        .add_default_plugins()
+        .add_plugins(DefaultPlugins)
         .add_plugin(Physics2dPlugin)
         .add_resource(GlobalFriction(0.90))
         .add_startup_system(setup.system());
@@ -17,7 +17,7 @@ fn main() {
 }
 
 fn setup(
-    mut commands: Commands,
+    commands: &mut Commands,
     asset_server: Res<AssetServer>,
     mut materials: ResMut<Assets<ColorMaterial>>,
 ) {
